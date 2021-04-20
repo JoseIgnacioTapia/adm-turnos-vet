@@ -10,7 +10,17 @@ const sintomaInput = document.querySelector('#sintomas');
 const formulario = document.querySelector('#nueva-cita');
 const contenedorCitas = document.querySelector('#citas');
 
-class Citas {}
+class Citas {
+  constructor() {
+    this.citas = [];
+  }
+
+  agregarCita(cita) {
+    this.citas = [...this.citas, cita];
+
+    console.log(this.citas);
+  }
+}
 
 class UI {
   imprimirAlerta(mensaje, tipo) {
@@ -69,7 +79,6 @@ const citaObjeto = {
 // Agrega datos al objeto de cita
 function datosCita(e) {
   citaObjeto[e.target.name] = e.target.value;
-  console.log(citaObjeto);
 }
 
 // Valida y agrega una nueva cita a la clase de citas
@@ -92,4 +101,25 @@ function nuevaCita(e) {
     ui.imprimirAlerta('Todos los campos son obligatorios', 'error');
     return;
   }
+
+  // Generar un ID único
+  citaObjeto.id = Date.now();
+
+  // Creando una nueva cita
+  administrarCitas.agregarCita({ ...citaObjeto });
+
+  // Reiniciar el objeto para la validación
+  reiniciarObjeto();
+
+  // Reiniciar el formulario
+  formulario.reset();
+}
+
+function reiniciarObjeto() {
+  citaObjeto.mascota = '';
+  citaObjeto.propietario = '';
+  citaObjeto.telefono = '';
+  citaObjeto.fecha = '';
+  citaObjeto.hora = '';
+  citaObjeto.sintomas = '';
 }
