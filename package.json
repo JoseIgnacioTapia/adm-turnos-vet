@@ -1,0 +1,27 @@
+{
+  "name": "adm-citas-vet",
+  "version": "1.0.0",
+  "description": "Learning Webpack, Eslint & Babel",
+  "main": "index.js",
+  "scripts": {
+    "babel": "npx babel entrada.js --out-file salida.js --presets=@babel/preset-env",
+    "webpack": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoseIgnacioTapia/adm-turnos-vet.git"
+  },
+  "author": "Joe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JoseIgnacioTapia/adm-turnos-vet/issues"
+  },
+  "homepage": "https://github.com/JoseIgnacioTapia/adm-turnos-vet#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.13.16",
+    "@babel/preset-env": "^7.13.15",
+    "webpack": "^5.35.1",
+    "webpack-cli": "^4.6.0"
+  }
+}
