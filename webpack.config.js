@@ -7,6 +7,13 @@ module.exports = {
     filename: 'bundle.js',
   },
   mode: 'development',
+  devServer: {
+    contentBase: path.join(__dirname, '/'),
+    compress: true,
+    port: 4000,
+    publicPath: '/public/js/',
+    watchContentBase: true,
+  },
   module: {
     rules: [
       {
@@ -17,6 +24,15 @@ module.exports = {
           options: {
             presets: ['@babel/preset-env'],
           },
+        },
+      },
+      {
+        enforce: 'pre',
+        test: /\.js/,
+        exclude: /(node_modules)/,
+        loader: 'eslint-loader',
+        options: {
+          fix: true,
         },
       },
     ],

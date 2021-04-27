@@ -1,4 +1,4 @@
-import { datosCita, nuevaCita } from '../funciones.js';
+import { datosCita, nuevaCita } from '../funciones';
 import {
   mascotaInput,
   propietarioInput,
@@ -7,7 +7,7 @@ import {
   horaInput,
   sintomaInput,
   formulario,
-} from '../selectores.js';
+} from '../selectores';
 
 class App {
   constructor() {

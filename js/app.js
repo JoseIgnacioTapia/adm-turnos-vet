@@ -1,3 +1,3 @@
-import App from './classes/App.js';
+import App from './classes/App';
 
 const app = new App();

@@ -1,5 +1,6 @@
-import Citas from './classes/Citas.js';
-import UI from './classes/UI.js';
+import Citas from './classes/Citas';
+
+import UI from './classes/UI';
 
 import {
   mascotaInput,
@@ -36,16 +37,18 @@ export function nuevaCita(e) {
   e.preventDefault();
 
   // Extraer la información del objeto de cita
-  const { mascota, propietario, telefono, fecha, hora, sintomas } = citaObjeto;
+  const {
+    mascota, propietario, telefono, fecha, hora, sintomas,
+  } = citaObjeto;
 
   // Validar
   if (
-    mascota === '' ||
-    propietario === '' ||
-    telefono === '' ||
-    fecha === '' ||
-    hora === '' ||
-    sintomas === ''
+    mascota === ''
+    || propietario === ''
+    || telefono === ''
+    || fecha === ''
+    || hora === ''
+    || sintomas === ''
   ) {
     ui.imprimirAlerta('Todos los campos son obligatorios', 'error');
     return;
@@ -58,8 +61,7 @@ export function nuevaCita(e) {
     ui.imprimirAlerta('Editado Correctamente');
 
     // Regresar el texto del boton a su estado original
-    formulario.querySelector('button[type="submit"]').textContent =
-      'Crear cita';
+    formulario.querySelector('button[type="submit"]').textContent = 'Crear cita';
 
     // Quitando modo edición
     modoEdicion = false;
@@ -103,7 +105,9 @@ export function eliminarCita(id) {
 
 // Carga los datos y el modo edición
 export function cargarEdicion(cita) {
-  const { mascota, propietario, telefono, fecha, hora, sintomas, id } = cita;
+  const {
+    mascota, propietario, telefono, fecha, hora, sintomas, id,
+  } = cita;
 
   // Llenar el objeto
   citaObjeto.mascota = mascota;
@@ -123,8 +127,7 @@ export function cargarEdicion(cita) {
   sintomaInput.value = sintomas;
 
   // Cambiar texto del boton
-  formulario.querySelector('button[type="submit"]').textContent =
-    'Guardar cambios';
+  formulario.querySelector('button[type="submit"]').textContent = 'Guardar cambios';
 
   modoEdicion = true;
 }

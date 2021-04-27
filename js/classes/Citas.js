@@ -8,13 +8,11 @@ class Citas {
   }
 
   eliminarCitas(id) {
-    this.citas = this.citas.filter(cita => cita.id !== id);
+    this.citas = this.citas.filter((cita) => cita.id !== id);
   }
 
   editarCita(citaActualizada) {
-    this.citas = this.citas.map(cita =>
-      cita.id === citaActualizada.id ? citaActualizada : cita
-    );
+    this.citas = this.citas.map((cita) => (cita.id === citaActualizada.id ? citaActualizada : cita));
   }
 }
 
